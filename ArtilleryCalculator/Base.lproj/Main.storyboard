@@ -303,7 +303,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="buttons" destination="eRO-yl-HUM" id="eq4-cz-cI0"/>
                         <outlet property="natoDegreeMeterFirstLabel" destination="SDb-wq-IY1" id="zDl-qf-3TF"/>
                         <outlet property="natoDegreeMeterSecondLabel" destination="GXn-bO-F7Z" id="78f-O9-Hg7"/>
                         <outlet property="natoSightLabel" destination="L9N-GA-sKu" id="yNH-0V-P07"/>
