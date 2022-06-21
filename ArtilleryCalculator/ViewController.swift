@@ -49,7 +49,40 @@ class ViewController: UIViewController {
     }
     
     @IBAction func countButtonPressed(_ sender: Any) {
-        print("countButtonPressed")
+        natoSightLabel.text = (srsrSightLabel.text ?? "").sight
+        
+        guard let srsrDegreeMeterFirst = Int(srsrDegreeMeterFirstLabel.text ?? ""),
+              let srsrDegreeMeterSecond = Int(srsrDegreeMeterSecondLabel.text ?? ""),
+              let natoDegreeMeterFirst = Int(natoDegreeMeterFirstLabel.text ?? ""),
+              let natoDegreeMeterSecond = Int(natoDegreeMeterSecondLabel.text ?? ""),
+              let srsrSecondLength = srsrDegreeMeterSecondLabel.text?.count,
+              let natoSecondLength = natoDegreeMeterSecondLabel.text?.count else {
+                  return
+              }
+        
+        let srsr = Double(srsrDegreeMeterFirst.multiplyBy10(times: srsrSecondLength) + srsrDegreeMeterSecond)
+        let nato = Double(natoDegreeMeterFirst.multiplyBy10(times: natoSecondLength) + natoDegreeMeterSecond)
+        
+        let srsrConst = 6000.0
+        let natoConst = 6400.0
+        
+        guard srsr != 0, nato != 0 else { return }
+        
+        if nato == 0 {
+            let newNatoValue = Int(natoConst - (srsr * natoConst / srsrConst))
+            let firstPart = newNatoValue / 100
+
+            natoDegreeMeterFirstLabel.text = "\(firstPart)"
+            natoDegreeMeterSecondLabel.text = "\(newNatoValue - firstPart)"
+            
+            return
+        }
+        
+        let newSrsrValue = Int(srsrConst - (srsr * srsrConst / natoConst))
+        let firstPart = newSrsrValue / 100
+
+        srsrDegreeMeterFirstLabel.text = "\(firstPart)"
+        srsrDegreeMeterSecondLabel.text = "\(newSrsrValue - firstPart)"
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
@@ -58,7 +91,9 @@ class ViewController: UIViewController {
         }
         
         selectedLabelText = selectedLabelText == "00" ? "" : selectedLabelText
-        selectedLabel?.text = selectedLabelText + senderText
+        if selectedLabelText.count != 2 || selectedLabel == srsrSightLabel {
+            selectedLabel?.text = selectedLabelText + senderText
+        }
     }
     
     @objc func labelPressed(sender: UITapGestureRecognizer) {
