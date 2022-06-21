@@ -53,8 +53,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
-        let newValue = ((selectedLabel?.text == "00" ? "" : selectedLabel?.text) ?? "") + (sender.titleLabel?.text ?? "")
-        selectedLabel?.text = newValue
+        guard var selectedLabelText = selectedLabel?.text, let senderText = sender.titleLabel?.text else {
+            return
+        }
+        
+        selectedLabelText = selectedLabelText == "00" ? "" : selectedLabelText
+        selectedLabel?.text = selectedLabelText + senderText
     }
     
     @objc func labelPressed(sender: UITapGestureRecognizer) {
