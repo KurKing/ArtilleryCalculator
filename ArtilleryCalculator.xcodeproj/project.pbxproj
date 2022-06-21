@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2C0F0612862478000B6D760 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C0F0602862478000B6D760 /* Utils.swift */; };
 		D2D5F23A2862361300D109DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D5F2392862361300D109DD /* AppDelegate.swift */; };
 		D2D5F23C2862361300D109DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D5F23B2862361300D109DD /* SceneDelegate.swift */; };
-		D2D5F23E2862361300D109DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D5F23D2862361300D109DD /* ViewController.swift */; };
 		D2D5F2412862361300D109DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D5F23F2862361300D109DD /* Main.storyboard */; };
 		D2D5F2432862361700D109DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D5F2422862361700D109DD /* Assets.xcassets */; };
 		D2D5F2462862361700D109DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2D5F2442862361700D109DD /* LaunchScreen.storyboard */; };
+		D2D5F25028623CA100D109DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D5F24F28623CA100D109DD /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D2C0F0602862478000B6D760 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D2D5F2362862361300D109DD /* ArtilleryCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtilleryCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D5F2392862361300D109DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2D5F23B2862361300D109DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D2D5F23D2862361300D109DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D2D5F2402862361300D109DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2D5F2422862361700D109DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2D5F2452862361700D109DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2D5F2472862361700D109DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2D5F24F28623CA100D109DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				D2D5F2392862361300D109DD /* AppDelegate.swift */,
 				D2D5F23B2862361300D109DD /* SceneDelegate.swift */,
-				D2D5F23D2862361300D109DD /* ViewController.swift */,
+				D2D5F24F28623CA100D109DD /* ViewController.swift */,
+				D2C0F0602862478000B6D760 /* Utils.swift */,
 				D2D5F23F2862361300D109DD /* Main.storyboard */,
 				D2D5F2422862361700D109DD /* Assets.xcassets */,
 				D2D5F2442862361700D109DD /* LaunchScreen.storyboard */,
@@ -138,8 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2D5F23E2862361300D109DD /* ViewController.swift in Sources */,
+				D2C0F0612862478000B6D760 /* Utils.swift in Sources */,
 				D2D5F23A2862361300D109DD /* AppDelegate.swift in Sources */,
+				D2D5F25028623CA100D109DD /* ViewController.swift in Sources */,
 				D2D5F23C2862361300D109DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,8 +297,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +310,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -321,8 +327,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +340,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
