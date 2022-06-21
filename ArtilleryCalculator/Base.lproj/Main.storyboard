@@ -303,9 +303,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lightButton" destination="jOc-n9-bA0" id="vRV-9e-Tny"/>
                         <outlet property="natoDegreeMeterFirstLabel" destination="SDb-wq-IY1" id="zDl-qf-3TF"/>
                         <outlet property="natoDegreeMeterSecondLabel" destination="GXn-bO-F7Z" id="78f-O9-Hg7"/>
                         <outlet property="natoSightLabel" destination="L9N-GA-sKu" id="yNH-0V-P07"/>
+                        <outlet property="refreshButton" destination="ulK-yp-RN5" id="5fl-de-h23"/>
                         <outlet property="srsrDegreeMeterFirstLabel" destination="YFD-5i-Pos" id="sjv-R7-Fdm"/>
                         <outlet property="srsrDegreeMeterSecondLabel" destination="fMj-gl-7vG" id="8Ok-qK-gXM"/>
                         <outlet property="srsrSightLabel" destination="hxh-T4-aBx" id="jb7-EW-wai"/>

@@ -10,6 +10,10 @@ import UIKit
 class ViewController: UIViewController {
     
     var selectedLabel: UILabel?
+    var isLightTheme = true
+    
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var lightButton: UIBarButtonItem!
     
     @IBOutlet weak var srsrSightLabel: UILabel!
     @IBOutlet weak var natoSightLabel: UILabel!
@@ -38,10 +42,24 @@ class ViewController: UIViewController {
                 $0.addGestureRecognizer(tap)
             }
         }
+        
+        colorThemeButtonPressed(lightButton)
     }
     
     @IBAction func colorThemeButtonPressed(_ sender: Any) {
-        print("colorThemeButtonPressed")
+        isLightTheme = !isLightTheme
+        
+        if isLightTheme {
+            view.backgroundColor = .white
+            view.changeColor(.black)
+            refreshButton.tintColor = .black
+            lightButton.tintColor = .black
+        } else {
+            view.backgroundColor = .black
+            view.changeColor(.darkRed)
+            refreshButton.tintColor = .darkRed
+            lightButton.tintColor = .darkRed
+        }
     }
     
     @IBAction func refreshButtonPressed(_ sender: Any) {
@@ -71,16 +89,13 @@ class ViewController: UIViewController {
         if nato == 0 {
             let newNatoValue = Int(natoConst - (srsr * natoConst / srsrConst))
             let firstPart = newNatoValue / 100
-
             natoDegreeMeterFirstLabel.text = "\(firstPart)"
             natoDegreeMeterSecondLabel.text = "\(newNatoValue - firstPart)"
-            
             return
         }
         
         let newSrsrValue = Int(srsrConst - (srsr * srsrConst / natoConst))
         let firstPart = newSrsrValue / 100
-
         srsrDegreeMeterFirstLabel.text = "\(firstPart)"
         srsrDegreeMeterSecondLabel.text = "\(newSrsrValue - firstPart)"
     }

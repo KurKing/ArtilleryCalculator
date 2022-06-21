@@ -25,3 +25,15 @@ extension Int {
         return self * Int(pow(10.0, Double(times)))
     }
 }
+
+extension UIView {
+    func changeColor(_ color: UIColor) {
+        if let label = self as? UILabel {
+            label.textColor = color
+        }
+        if let button = self as? UIButton {
+            button.titleLabel?.textColor = color
+        }
+        subviews.forEach({ $0.changeColor(color) })
+    }
+}
