@@ -43,7 +43,7 @@ class ViewController: UIViewController {
             }
         }
         
-        colorThemeButtonPressed(lightButton)
+        colorThemeButtonPressed(0)
     }
     
     @IBAction func colorThemeButtonPressed(_ sender: Any) {
