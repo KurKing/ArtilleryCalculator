@@ -72,32 +72,38 @@ class ViewController: UIViewController {
         guard let srsrDegreeMeterFirst = Int(srsrDegreeMeterFirstLabel.text ?? ""),
               let srsrDegreeMeterSecond = Int(srsrDegreeMeterSecondLabel.text ?? ""),
               let natoDegreeMeterFirst = Int(natoDegreeMeterFirstLabel.text ?? ""),
-              let natoDegreeMeterSecond = Int(natoDegreeMeterSecondLabel.text ?? ""),
-              let srsrSecondLength = srsrDegreeMeterSecondLabel.text?.count,
-              let natoSecondLength = natoDegreeMeterSecondLabel.text?.count else {
+              let natoDegreeMeterSecond = Int(natoDegreeMeterSecondLabel.text ?? "") else {
                   return
               }
         
-        let srsr = Double(srsrDegreeMeterFirst.multiplyBy10(times: srsrSecondLength) + srsrDegreeMeterSecond)
-        let nato = Double(natoDegreeMeterFirst.multiplyBy10(times: natoSecondLength) + natoDegreeMeterSecond)
+        let srsr = Double(srsrDegreeMeterFirst * 100 + srsrDegreeMeterSecond)
+        let nato = Double(natoDegreeMeterFirst * 100 + natoDegreeMeterSecond)
         
         let srsrConst = 6000.0
         let natoConst = 6400.0
         
-        guard srsr != 0, nato != 0 else { return }
+        guard srsr != 0 || nato != 0 else { return }
         
         if nato == 0 {
-            let newNatoValue = Int(natoConst - (srsr * natoConst / srsrConst))
+            let newNatoValue = Int((natoConst - (srsr * natoConst / srsrConst)).rounded())
             let firstPart = newNatoValue / 100
             natoDegreeMeterFirstLabel.text = "\(firstPart)"
-            natoDegreeMeterSecondLabel.text = "\(newNatoValue - firstPart)"
+            var secondLabelValue = "\(newNatoValue - firstPart * 100)"
+            if secondLabelValue == "0" {
+                secondLabelValue += "0"
+            }
+            natoDegreeMeterSecondLabel.text = "\(secondLabelValue)"
             return
         }
         
-        let newSrsrValue = Int(srsrConst - (srsr * srsrConst / natoConst))
+        let newSrsrValue = Int((srsrConst - (nato * srsrConst / natoConst)).rounded())
         let firstPart = newSrsrValue / 100
         srsrDegreeMeterFirstLabel.text = "\(firstPart)"
-        srsrDegreeMeterSecondLabel.text = "\(newSrsrValue - firstPart)"
+        var secondLabelValue = "\(newSrsrValue - firstPart * 100)"
+        if secondLabelValue == "0" {
+            secondLabelValue += "0"
+        }
+        srsrDegreeMeterSecondLabel.text = "\(secondLabelValue)"
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
